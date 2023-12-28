@@ -1,0 +1,48 @@
+<style>
+     @font-face {
+   font-family:Dancing_Script ;
+   src: url(fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf);
+}
+.hd {
+    
+   font-family:Dancing_Script ;
+   font-size: 25px;
+}
+header {
+            background-color: #D9C4EC;
+            padding: 0px;
+            text-align: center;
+        }
+#clock {
+            border: 2px solid #cacaca;
+            padding: 10px;
+            background-color: #D9C4EC;
+            display: inline-block;
+            border-radius: 10%;
+           
+        }
+
+</style>
+<header>
+    <h2 id="clock"></h2>
+    <br>
+    <a class="hd" href="Fluffy's _To_Do_List.php">🌸Home</a> &nbsp;
+    <a class="hd" href="about.php">🌸About</a>&nbsp;
+    <a class="hd" href="Inscription.php">🌸Inscription</a>&nbsp;
+    <hr>
+    <script language="javascript">
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var time = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("clock").textContent = time;
+
+            setTimeout(updateClock, 1000); // Update the clock every second
+        }
+
+        updateClock(); // Start the clock
+    </script>
+</header>

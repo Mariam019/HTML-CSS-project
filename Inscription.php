@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,12 +78,13 @@ body{
               </label>
               <br></br>
               <button type="button" onclick="" class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="signup()" class="signupbtn">Sign Up</button>
+              <button type="button" onclick="signup()" class="signupbtn">Sign Up</button>
         </form>
         <p id="message"></p>
 
         <script language="javascript"> 
-        function signup(){ var form = document.getElementById("Inscription"); 
+        function signup()
+        { var form = document.getElementById("Inscription"); 
         var formData = new FormData(form); 
         var xhr = new XMLHttpRequest(); 
         xhr.open("POST", "Inscription.php", true); 
@@ -92,12 +94,13 @@ body{
                 if(result.success)
                 { alert("User has been signed up successfully!"); 
                 window.location.href = "Fluffy's_To_Do_List.php"; //redirect to home page
-             }else
-             { document.getElementById("message").textContent = result.message; } } }
+             }
+             else{ 
+                document.getElementById("message").textContent = result.message; } } };
               xhr.send(formData); } 
         </script>
         <?php
-header('Content-Type: text/html');
+
 
 $servername = "localhost";
 $username = "root";
@@ -110,19 +113,26 @@ if($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = isset($_POST['email']) ? $_POST['email'] : null;
+$password = isset($_POST['password']) ? $_POST['password'] : null;
+$confirmPassword = isset($_POST['confirm-password']) ? $_POST['confirm-password'] : null;
+
+if ($password !== $confirmPassword) {
+    echo "Error: Passwords do not match";
+    exit;
+}
 
 
-$sql = "INSERT INTO form ( email, password) VALUES (?, ?)";
+$sql = "INSERT INTO form (email, password) VALUES (?, ?)";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $email, $password);
 
-if($stmt->execute()){
-    echo json_encode(array("success" => true));
-}else{
-    echo json_encode(array("success" => false, "message" => "An error occurred during the sign up process. Please try again later."));
+if ($stmt->execute()) {
+    // Insertion successful
+} else {
+    // Handle errors
+    echo "Error: " . $stmt->error;
 }
 
 $stmt->close();

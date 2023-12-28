@@ -1,3 +1,6 @@
+<?php 
+        include("header.html");
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -94,14 +97,14 @@ right: 0;
 .pic{
     
     position: fixed;
-      top: 260px;
+      top: 150px;
       right: 5px;
       border-radius: 10%;
     
 }
 .quote{
     position: fixed;
-      top: 500px;
+      top: 400px;
       right: 5px;
       font-size: 18px;
 }
@@ -112,28 +115,17 @@ right: 0;
    right:300px;
    top:600px;
 }
-header {
-            background-color: #D9C4EC;
-            padding: 0px;
-            text-align: center;
-        }
-#clock {
-            border: 2px solid #cacaca;
-            padding: 10px;
-            background-color: #D9C4EC;
-            display: inline-block;
-            border-radius: 10%;
-           
-        }
+
 
 
         </style>
     </head>
     <body>
-        <header>
+      <!--  <header>
             <h2 id="clock"></h2>
         </header>
-        
+    -->
+   
             <h1>To Do List</h1>
 
         <div class="container">
@@ -157,10 +149,11 @@ header {
                   </ul>
             </div>
 
-
-           <p>
+     <br>
+     
+         <!--  <p>
                 <a class="insc" href="Inscription.php"><b>🌸 Inscription</b></a>
-            </p>
+            </p>-->
            
            <script language="javascript">
             // Get references to the DOM elements
@@ -197,20 +190,13 @@ task.addEventListener('keypress', function(event) {
 });
 
 
-function updateClock() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            var time = hours + ":" + minutes + ":" + seconds;
 
-            document.getElementById("clock").textContent = time;
-
-            setTimeout(updateClock, 1000); // Update the clock every second
-        }
-
-        updateClock(); // Start the clock
         </script>
-       
+   
     </body>
+
 </html>
+
+<?php 
+        include("footer.html");
+    ?>
