@@ -1,4 +1,6 @@
-
+<?php 
+        include("header.html");
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,8 +79,8 @@ body{
                 <input  type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
               </label>
               <br></br>
-              <button type="button" onclick="" class="cancelbtn">Cancel</button>
-              <button type="button" onclick="signup()" class="signupbtn">Sign Up</button>
+              <button type="button" onclick="cancel()" class="cancelbtn">Cancel</button>
+              <button type="submit" onclick="signup()" class="signupbtn">Sign Up</button>
         </form>
         <p id="message"></p>
 
@@ -113,14 +115,14 @@ if($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
 
-$email = isset($_POST['email']) ? $_POST['email'] : null;
-$password = isset($_POST['password']) ? $_POST['password'] : null;
-$confirmPassword = isset($_POST['confirm-password']) ? $_POST['confirm-password'] : null;
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
+$confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '';
 
-if ($password !== $confirmPassword) {
+/*if ($password !== $confirmPassword) {
     echo "Error: Passwords do not match";
     exit;
-}
+}*/
 
 
 $sql = "INSERT INTO form (email, password) VALUES (?, ?)";
@@ -140,3 +142,6 @@ $conn->close();
 ?>
     </body>
 </html>
+<?php 
+        include("footer.html");
+    ?>

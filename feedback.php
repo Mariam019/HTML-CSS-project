@@ -14,6 +14,9 @@
 }
 body{
     background-color:  #D9C4EC;
+    position: relative;
+            height: 100vh;
+            margin: 0;
 }
 form{
     font-family:Dancing_Script ;
@@ -24,6 +27,7 @@ form{
     width: 400px;
      height : 100px;
      border-radius: 5px;
+     
 }
 .email{
     font-family: 'Dancing_Script';
@@ -31,6 +35,7 @@ form{
    height: 45px;
    width: 400px;
     border-radius: 5px;
+    margin-left : 12px;
 }
 .btn{
     font-family: 'Dancing_Script';
@@ -42,6 +47,7 @@ form{
     height: 45px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left : 85px;
 }
 </style>
 </head>
@@ -59,5 +65,7 @@ form{
     <input class="btn" type="button" value="Send">
 
     <input class="btn" type="button" value="Cancel">
+
+   
 </body>
 </html>

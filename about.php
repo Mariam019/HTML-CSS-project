@@ -17,6 +17,14 @@ body{
     font-family:Dancing_Script ;
     font-size: 20px;
 }
+.pic{
+    
+    position:center;
+      
+      border-radius: 10%;
+      margin-left: 35%;
+            
+}
 </style>
 </head>
 <body>
@@ -28,6 +36,10 @@ body{
       At Fluffy's to do list, we understand the challenges of managing a busy schedule and juggling multiple responsibilities.
        That's why we've created a user-friendly platform that empowers you to create, organize, and prioritize your to-do lists effortlessly.
     </p>
+    <div>
+<img src="photos/oct17-04-623455200-2764855490.png" style="width:400px;height:250px;" class="pic">
+
+    </div>
 </body>
 </html>
 
